@@ -13,7 +13,9 @@ Create an EC2 instance (Ubuntu 22.04 recommended) and make sure it has a public 
 
 Go to:
 
+
 AWS Console → EC2 → Instances → Security → Security Groups → Inbound Rules
+
 
 Add a rule:
 
@@ -22,7 +24,7 @@ Type	            Port	        Source
 Custom TCP	      3000	       0.0.0.0/0
 
 
-Commamnds for ec2 connect to playbooks:
+Commands for ec2 connect to playbooks:
 
 
 step 2 : check your ec2 connect to keypiar - ssh -i /home/girish/aws-2/my-key-2.pem ubuntu@13.201.173.250
