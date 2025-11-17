@@ -18,8 +18,8 @@ AWS Console → EC2 → Instances → Security → Security Groups → Inbound R
 Add a rule:
 
 
-Type	           Port	        Source     
-Custom TCP	     3000	       0.0.0.0/0
+Type	            Port	        Source     
+Custom TCP	      3000	       0.0.0.0/0
 
 
 Commamnds for ec2 connect to playbooks:
