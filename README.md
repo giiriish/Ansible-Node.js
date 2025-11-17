@@ -35,7 +35,7 @@ Now run the ping test:
 ansible -i inventory.ini ec2 -m ping
 
 
-▶️ Step 7 — Run the Deployment
+▶️ Step 3 — Run the Deployment
 
 Use the following command:
 
