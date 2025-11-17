@@ -1,0 +1,39 @@
+---
+- name: Deploy Node.js application on AWS EC2
+  hosts: ec2
+  become: yes
+
+  tasks:
+
+    - name: Update apt repository
+      apt:
+        update_cache: yes
+
+    - name: Install Node.js 18 (includes npm)
+      shell: |
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+      args:
+        executable: /bin/bash
+
+    - name: Install PM2 globally
+      npm:
+        name: pm2
+        global: yes
+
+    - name: Clone Node.js application
+      git:
+        repo: "https://github.com/priyabuss2004/node-app.git"
+        dest: /home/ubuntu/node-app
+        version: main
+
+    - name: Install app dependencies
+      npm:
+        path: /home/ubuntu/node-app
+
+    - name: Start app using PM2
+      shell: |
+        pm2 stop all || true
+        pm2 start /home/ubuntu/node-app/app.js --name nodeapp
+        pm2 save
+        pm2 startup
