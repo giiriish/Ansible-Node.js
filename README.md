@@ -1,10 +1,15 @@
-Create an ansible project to run nodejs application on aws ec2 server
+🚀 Deploy Node.js Application on AWS EC2 Using Ansible
 
 steps:
 
-Create AWS ec2 then, 
+🛠 Step 1 — Configure AWS EC2
+
+Create an EC2 instance (Ubuntu 22.04 recommended) and make sure it has a public IP.
+
+
 
 🔧 Open Port 3000 in Security Group
+
 
 Go to:
 
@@ -12,12 +17,15 @@ AWS Console → EC2 → Instances → Security → Security Groups → Inbound R
 
 Add a rule:
 
+
 Type	           Port	        Source     
 Custom TCP	     3000	       0.0.0.0/0
 
+
 Commamnds for ec2 connect to playbooks:
 
-step 1 : check your ec2 connect to keypiar - ssh -i /home/girish/aws-2/my-key-2.pem ubuntu@13.201.173.250
+
+step 2 : check your ec2 connect to keypiar - ssh -i /home/girish/aws-2/my-key-2.pem ubuntu@13.201.173.250
 
 
 Now run the ping test:
@@ -25,8 +33,9 @@ Now run the ping test:
 ansible -i inventory.ini ec2 -m ping
 
 
-step 2: Run the playbook
+▶️ Step 7 — Run the Deployment
 
+Use the following command:
 
 ansible-playbook -i inventory.ini playbook.yml
 
